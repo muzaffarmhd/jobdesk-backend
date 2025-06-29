@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobDesk - AI Assistant</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Left Panel -->
+        <div class="left-panel">
+            <div class="brand-section">
+                <div class="brand-logo">
+                    <h1>JobDesk</h1>
+                    <div class="brand-tagline">
+                        <span class="intelligent-text">INTELLIGENT</span>
+                        <span class="assistant-text">ASSISTANT</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Panel - Chat Interface -->
+        <div class="right-panel">
+            <div class="chat-container">
+                <!-- Header -->
+                <div class="chat-header">
+                    <div class="assistant-info">
+                        <div class="assistant-avatar">
+                            <i data-feather="user"></i>
+                        </div>
+                        <div class="assistant-details">
+                            <h3>JobDesk Assistant</h3>
+                            <span class="status online">Online</span>
+                        </div>
+                    </div>
+                    <div class="header-actions">
+                        <button class="action-btn">
+                            <i data-feather="more-vertical"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Chat Messages Area -->
+                <div class="chat-messages">
+                    <div class="welcome-message">
+                        <div class="welcome-avatar">
+                            <i data-feather="message-circle"></i>
+                        </div>
+                        <div class="welcome-content">
+                            <h2>Hey, how can I assist you?</h2>
+                            <p>I'm here to help you with job searches, career advice, and professional development.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chat Input -->
+                <div class="chat-input-container">
+                    <div class="chat-input-wrapper">
+                        <input type="text" class="chat-input" placeholder="Type your message here..." id="messageInput">
+                        <div class="input-actions">
+                            <button class="input-action-btn" id="voiceBtn">
+                                <i data-feather="mic"></i>
+                            </button>
+                            <button class="send-btn" id="sendBtn">
+                                <i data-feather="send"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
+    <script>
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Chat transition functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const messageInput = document.getElementById('messageInput');
+            const container = document.querySelector('.container');
+            const chatHeader = document.querySelector('.chat-header');
+            
+            let isTransitioned = false;
+            
+            // Add typing animation
+            messageInput.addEventListener('input', function() {
+                if (!isTransitioned && this.value.trim().length > 0) {
+                    container.classList.add('chat-mode');
+                    isTransitioned = true;
+                }
+                
+                if (isTransitioned && this.value.trim().length === 0) {
+                    container.classList.remove('chat-mode');
+                    isTransitioned = false;
+                }
+            });
+            
+            messageInput.addEventListener('blur', function() {
+                if (this.value.trim().length === 0) {
+                    container.classList.remove('chat-mode');
+                    isTransitioned = false;
+                }
+            });
+            
+            // Add focus animation
+            messageInput.addEventListener('focus', function() {
+                this.parentElement.style.transform = 'scale(1.02)';
+            });
+            
+            messageInput.addEventListener('blur', function() {
+                if (!this.value.trim()) {
+                    this.parentElement.style.transform = 'scale(1)';
+                }
+            });
+            
+            // Add click animations to buttons
+            document.querySelectorAll('button').forEach(button => {
+                button.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

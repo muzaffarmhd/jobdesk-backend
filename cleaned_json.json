@@ -1,0 +1,347 @@
+[
+  {
+    "role": "machine learning engineer",
+    "Experience Level": "4–6 years",
+    "Technical Skills": [
+      "time-series modeling",
+      "regression/classification",
+      "anomaly detection",
+      "Python",
+      "scikit-learn",
+      "TensorFlow/PyTorch",
+      "ML Ops"
+    ],
+    "Soft Skills": [
+      "collaboration"
+    ],
+    "Key Responsibilities": [
+      "build machine learning models",
+      "work on sensor data pre-processing",
+      "model training",
+      "inference deployment",
+      "collaborate with simulation engineers"
+    ],
+    "Tools & Technologies": [
+      "Azure ML",
+      "Databricks"
+    ],
+    "Education Requirements": "Not explicitly mentioned",
+    "Industry/Domain": "Manufacturing"
+  },
+  {
+    "role": "machine learning engineer",
+    "Experience Level": "4+ years",
+    "Technical Skills": [
+      "JAX",
+      "TensorFlow",
+      "NumPy",
+      "ML training workflows",
+      "loop mechanics",
+      "evaluation metrics",
+      "Python",
+      "MLFlow",
+      "Weights & Biases"
+    ],
+    "Soft Skills": [
+      "leadership"
+    ],
+    "Key Responsibilities": [
+      "translating production-grade machine learning models",
+      "designing and executing robust evaluation pipelines",
+      "developing tools and scripts",
+      "collaborating with research and product teams",
+      "conducting performance benchmarking",
+      "building reproducible ML workflows"
+    ],
+    "Tools & Technologies": [
+      "JAX",
+      "TensorFlow"
+    ],
+    "Education Requirements": "Not explicitly mentioned",
+    "Industry/Domain": "Technology"
+  },
+  {
+    "role": "machine learning engineer",
+    "Experience Level": "Not explicitly mentioned",
+    "Technical Skills": [],
+    "Soft Skills": [
+      "Excellent writing",
+      "Grammar skills",
+      "Research skills",
+      "Fact-checking skills"
+    ],
+    "Key Responsibilities": [
+      "Come up with diverse conversations",
+      "Write high-quality answers",
+      "Compare the performance of different AI models",
+      "Research and fact-check AI responses"
+    ],
+    "Tools & Technologies": [
+      "Chatbots"
+    ],
+    "Education Requirements": "Fluent in Hindi + English, A bachelor's degree (completed or in progress)",
+    "Industry/Domain": "Technology"
+  },
+  {
+    "role": "machine learning engineer",
+    "Experience Level": "Not explicitly mentioned",
+    "Technical Skills": [
+      "JAX",
+      "TensorFlow",
+      "NumPy",
+      "Python",
+      "MLFlow",
+      "Weights & Biases"
+    ],
+    "Soft Skills": [
+      "Leadership"
+    ],
+    "Key Responsibilities": [
+      "Migrate production-grade ML models from TensorFlow to JAX",
+      "Design and execute evaluation pipelines",
+      "Develop tools and scripts",
+      "Collaborate with research and product teams",
+      "Conduct performance benchmarking and profiling",
+      "Build reproducible ML workflows"
+    ],
+    "Tools & Technologies": [
+      "JAX",
+      "TensorFlow",
+      "MLFlow",
+      "Weights & Biases"
+    ],
+    "Education Requirements": "Not explicitly mentioned",
+    "Industry/Domain": "Technology"
+  },
+  {
+    "role": "machine learning engineer",
+    "Experience Level": "Not explicitly mentioned",
+    "Technical Skills": [
+      "Google Cloud Platform",
+      "Vertex AI",
+      "Python",
+      "Machine Learning",
+      "Gen AI"
+    ],
+    "Soft Skills": [
+      "Enthusiastic and positive leadership",
+      "Excellent communication and influencing skills",
+      "Excellent collaboration skills",
+      "Excellent analytical and problem solving skills",
+      "Able to work in a fast-paced environment",
+      "Effective time management",
+      "Ability to work on multiple, concurrent tasks",
+      "Lead continuous improvement",
+      "Ability to challenge the status quo",
+      "Ability to see the big picture",
+      "Display passion for & responsibility to customer and partners"
+    ],
+    "Key Responsibilities": [
+      "Main job duties and responsibilities not explicitly mentioned"
+    ],
+    "Tools & Technologies": [
+      "CICD",
+      "Rotational shift",
+      "Remote",
+      "Full-time",
+      "Vertex AI",
+      "Python",
+      "Machine Learning",
+      "Gen AI",
+      "GCP"
+    ],
+    "Education Requirements": "Not explicitly mentioned",
+    "Industry/Domain": "Technology"
+  },
+  {
+    "role": "machine learning engineer",
+    "Experience Level": "Not explicitly mentioned",
+    "Technical Skills": [],
+    "Soft Skills": [
+      "bilingual",
+      "excellent writing",
+      "research",
+      "fact-checking"
+    ],
+    "Key Responsibilities": [
+      "come up with diverse conversations",
+      "write high-quality answers",
+      "compare the performance of different AI models",
+      "research and fact-check AI responses"
+    ],
+    "Tools & Technologies": [
+      "chatbots"
+    ],
+    "Education Requirements": "bachelor's degree (completed or in progress)",
+    "Industry/Domain": "Technology"
+  },
+  {
+    "role": "machine learning engineer",
+    "Experience Level": "3 to 4 years",
+    "Technical Skills": [
+      "Python",
+      "SQL",
+      "ML libraries and frameworks (scikit-learn, pandas, NumPy, spaCy, CatBoost)",
+      "GCP Vertex AI",
+      "ML-Ops",
+      "Regulatory considerations in financial services (nice to have)"
+    ],
+    "Soft Skills": [
+      "Collaboration"
+    ],
+    "Key Responsibilities": [
+      "Deploy machine learning models on GCP using Vertex AI",
+      "Design and implement real-time and batch inference pipelines",
+      "Monitor model performance, detect drift, and manage lifecycle",
+      "Ensure adherence to model governance best practices and support ML-Ops workflows",
+      "Collaborate with cross-functional teams"
+    ],
+    "Tools & Technologies": [
+      "Google Cloud Platform (GCP)",
+      "Vertex AI"
+    ],
+    "Education Requirements": "Not explicitly mentioned",
+    "Industry/Domain": "Retail Banking"
+  },
+  {
+    "role": "machine learning engineer",
+    "Experience Level": "Not explicitly mentioned",
+    "Technical Skills": [
+      "numpy",
+      "pytorch",
+      "pandas/polars",
+      "airflow",
+      "Python",
+      "docker",
+      "databases",
+      "FastAPI",
+      "PostgreSQL",
+      "Celery",
+      "AWS",
+      "Modal",
+      "git",
+      "continuous integration"
+    ],
+    "Soft Skills": [
+      "Training",
+      "Evaluating",
+      "Deploying",
+      "Data Science",
+      "Machine Learning",
+      "Communication",
+      "Leadership",
+      "Teamwork",
+      "Problem-Solving"
+    ],
+    "Key Responsibilities": [
+      "Training",
+      "Evaluating",
+      "Deploying machine learning models",
+      "Developing data products using large language model",
+      "Model evaluation",
+      "Experience with web services and programming"
+    ],
+    "Tools & Technologies": [
+      "Python",
+      "docker",
+      "databases",
+      "FastAPI",
+      "PostgreSQL",
+      "Celery",
+      "AWS",
+      "Modal",
+      "git",
+      "continuous integration"
+    ],
+    "Education Requirements": "Not explicitly mentioned",
+    "Industry/Domain": "Technology"
+  },
+  {
+    "role": "machine learning engineer",
+    "Experience Level": "8+ years",
+    "Technical Skills": [
+      "Python",
+      "SQL",
+      "scikit-learn",
+      "Prophet",
+      "pyts",
+      "MLflow",
+      "Ray",
+      "Ray Tune",
+      "Jupyter",
+      "Docker",
+      "Airflow",
+      "S3",
+      "asyncio",
+      "Pydantic",
+      "NLP",
+      "vector stores",
+      "MLOps"
+    ],
+    "Soft Skills": [
+      "problem-solving",
+      "analytical",
+      "communication",
+      "teamwork"
+    ],
+    "Key Responsibilities": [
+      "develop and optimize machine learning models",
+      "build scalable training and inference pipelines",
+      "evaluate and tune models",
+      "design and deploy features powered by large language models",
+      "work with product managers",
+      "collaborate with software and DevOps teams"
+    ],
+    "Tools & Technologies": [
+      "Ray",
+      "Airflow",
+      "Docker",
+      "S3",
+      "MLflow",
+      "Ray Tune",
+      "scikit-learn",
+      "Prophet",
+      "pyts",
+      "Jupyter"
+    ],
+    "Education Requirements": "Not explicitly mentioned",
+    "Industry/Domain": "Finance"
+  },
+  {
+    "role": "machine learning engineer",
+    "Experience Level": "2-4 years",
+    "Technical Skills": [
+      "Machine Learning/NLP",
+      "Python",
+      "PyTorch",
+      "TensorFlow",
+      "Hugging Face Transformers",
+      "FastAPI",
+      "Docker",
+      "AWS",
+      "GCP",
+      "Azure",
+      "LLMs like GPT-4, Claude, LLaMA, or Mistral",
+      "LangChain",
+      "OpenAI Assistants API",
+      "Copilot extensions"
+    ],
+    "Soft Skills": [
+      "Proficiency in understanding of vector databases, prompt engineering, and RAG systems"
+    ],
+    "Key Responsibilities": [
+      "Build scalable AI agents, intelligent chatbots, copilots, and automation tools"
+    ],
+    "Tools & Technologies": [
+      "Work from home",
+      "Day shift",
+      "Morning shift",
+      "Night shift",
+      "Rotational shift",
+      "Performance bonus",
+      "Yearly bonus"
+    ],
+    "Education Requirements": "Not explicitly mentioned",
+    "Industry/Domain": "Technology"
+  }
+]
