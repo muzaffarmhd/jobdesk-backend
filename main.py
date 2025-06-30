@@ -29,8 +29,14 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# TF-IDF vectorizer
-vectorizer = TfidfVectorizer(max_features=1000, stop_words='english')
+# TF-IDF vectorizer for text similarity
+vectorizer = TfidfVectorizer(
+    max_features=1000,
+    stop_words='english',
+    ngram_range=(1, 2),
+    min_df=1,
+    max_df=0.95
+)
 
 # Weaviate client
 client = weaviate.connect_to_weaviate_cloud(
@@ -60,14 +66,14 @@ async def chat(msg: Message):
     
     if job_texts:
         tfidf_matrix = vectorizer.fit_transform(job_texts)
-        user_vector = vectorizer.transform([user_input])
+        user_tfidf = vectorizer.transform([user_input])
         
-        similarities = cosine_similarity(user_vector, tfidf_matrix).flatten()
+        similarities = cosine_similarity(user_tfidf, tfidf_matrix).flatten()
         
         top_indices = np.argsort(similarities)[-3:][::-1]
-        top_jobs = [job_objects[i] for i in top_indices if similarities[i] > 0]
+        top_jobs = [job_objects[i] for i in top_indices]
     else:
-        top_jobs = []
+        top_jobs = all_jobs.objects[:3] if len(all_jobs.objects) > 0 else []
 
     context = ""
     for obj in top_jobs:
