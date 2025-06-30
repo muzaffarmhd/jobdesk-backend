@@ -77,58 +77,48 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
     <script>
-        // Initialize Feather Icons
-        feather.replace();
+    document.addEventListener('DOMContentLoaded', function () {
+        const messageInput = document.getElementById('messageInput');
+        const chatBox = document.querySelector('.chat-messages');
+        const sendBtn = document.getElementById('sendBtn');
 
-        // Chat transition functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const messageInput = document.getElementById('messageInput');
-            const container = document.querySelector('.container');
-            const chatHeader = document.querySelector('.chat-header');
-            
-            let isTransitioned = false;
-            
-            // Add typing animation
-            messageInput.addEventListener('input', function() {
-                if (!isTransitioned && this.value.trim().length > 0) {
-                    container.classList.add('chat-mode');
-                    isTransitioned = true;
-                }
-                
-                if (isTransitioned && this.value.trim().length === 0) {
-                    container.classList.remove('chat-mode');
-                    isTransitioned = false;
-                }
-            });
-            
-            messageInput.addEventListener('blur', function() {
-                if (this.value.trim().length === 0) {
-                    container.classList.remove('chat-mode');
-                    isTransitioned = false;
-                }
-            });
-            
-            // Add focus animation
-            messageInput.addEventListener('focus', function() {
-                this.parentElement.style.transform = 'scale(1.02)';
-            });
-            
-            messageInput.addEventListener('blur', function() {
-                if (!this.value.trim()) {
-                    this.parentElement.style.transform = 'scale(1)';
-                }
-            });
-            
-            // Add click animations to buttons
-            document.querySelectorAll('button').forEach(button => {
-                button.addEventListener('click', function() {
-                    this.style.transform = 'scale(0.95)';
-                    setTimeout(() => {
-                        this.style.transform = '';
-                    }, 150);
+        sendBtn.addEventListener('click', async () => {
+            const userMessage = messageInput.value.trim();
+            if (!userMessage) return;
+
+            // Show user message
+            const userBubble = document.createElement("div");
+            userBubble.className = "chat-bubble user";
+            userBubble.innerHTML = `<p>${userMessage}</p>`;
+            chatBox.appendChild(userBubble);
+            messageInput.value = "";
+
+            try {
+                const res = await fetch("http://127.0.0.1:8000/chat", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ message: userMessage })
                 });
-            });
+
+                const data = await res.json();
+
+                // Show bot reply
+                const botBubble = document.createElement("div");
+                botBubble.className = "chat-bubble bot";
+                botBubble.innerHTML = `<p>${data.response}</p>`;
+                chatBox.appendChild(botBubble);
+                chatBox.scrollTop = chatBox.scrollHeight;
+
+            } catch (err) {
+                const errorBubble = document.createElement("div");
+                errorBubble.className = "chat-bubble bot";
+                errorBubble.innerHTML = `<p><strong>Error:</strong> Could not connect to backend.</p>`;
+                chatBox.appendChild(errorBubble);
+            }
         });
+    });
     </script>
+
+
 </body>
 </html>
