@@ -30,7 +30,7 @@ OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 app = FastAPI(title="Job Desc AI API - Final Backend", version="5.0.5")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://localhost:3000"],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
