@@ -5,7 +5,9 @@ from dotenv import load_dotenv
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from sentence_transformers import SentenceTransformer
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+import numpy as np
 import weaviate
 from weaviate.classes.query import Filter
 
@@ -27,8 +29,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Sentence embedding model
-embedder = SentenceTransformer("all-MiniLM-L6-v2")
+# TF-IDF vectorizer
+vectorizer = TfidfVectorizer(max_features=1000, stop_words='english')
 
 # Weaviate client
 client = weaviate.connect_to_weaviate_cloud(
@@ -45,14 +47,30 @@ class Message(BaseModel):
 async def chat(msg: Message):
     user_input = msg.message
 
-    # Embed user message
-    vector = embedder.encode(user_input)
+    all_jobs = collection.query.fetch_objects(limit=100)
+    
+    job_texts = []
+    job_objects = []
+    
+    for obj in all_jobs.objects:
+        props = obj.properties
+        job_text = f"{props['role']} {props['experience']} {' '.join(props['technicalSkills'])} {' '.join(props['softSkills'])} {' '.join(props['responsibilities'])} {' '.join(props['tools'])} {props['education']} {props['industry']}"
+        job_texts.append(job_text)
+        job_objects.append(obj)
+    
+    if job_texts:
+        tfidf_matrix = vectorizer.fit_transform(job_texts)
+        user_vector = vectorizer.transform([user_input])
+        
+        similarities = cosine_similarity(user_vector, tfidf_matrix).flatten()
+        
+        top_indices = np.argsort(similarities)[-3:][::-1]
+        top_jobs = [job_objects[i] for i in top_indices if similarities[i] > 0]
+    else:
+        top_jobs = []
 
-    # Perform vector search
-    results = collection.query.near_vector(near_vector=vector, limit=3)
     context = ""
-
-    for obj in results.objects:
+    for obj in top_jobs:
         props = obj.properties
         context += f"""
 Role: {props['role']}
@@ -66,7 +84,6 @@ Industry: {props['industry']}
 ---
 """
 
-    # Create prompt for LLM
     prompt = f"""
 You are JobDesk, a friendly career assistant. 
 
@@ -82,7 +99,6 @@ Instructions:
 Response:
 """
 
-    # Call OpenRouter API with Mistral
     response = requests.post(
         "https://openrouter.ai/api/v1/chat/completions",
         headers={
